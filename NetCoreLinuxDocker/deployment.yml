@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: my-deployment
+  label: deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      editor: vscode
+  template:
+    metadata:
+      name: my-deployment
+      labels:
+        editor: vscode
+    spec:
+      containers:
+      - name: docker-ci
+        image: siyasta/netcorelinuxdocker:127
+        ports:
+        - containerPort: 80
